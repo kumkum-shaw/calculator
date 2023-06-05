@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap"
+      rel="stylesheet"
+    />
+      <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utiles.css" />
+    <title>Calculator</title>
+
+
+
+  </head>
+  <body>
+    <div class="contain">
+      <h2>Calculate Your Income-Tax</h2>
+      <div class="savings">
+        Savings Amount:
+        <input type="number" value="" id="savings" required/>
+      </div>
+
+      <div class="income">
+        Income Amount:
+        <input type="number" value="" id="income" required/>
+        <div class="submit">
+          <input type="submit" value="Submit" id="submitBtn" />
+        </div>
+        <div class="tax">
+          Income-Tax :
+          <input type="number" value="" readonly="readonly" id="itax" />
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script>
+      const submitBtn = document.getElementById("submitBtn");
+      const savings = document.getElementById("savings");
+      const income = document.getElementById("income");
+
+      submitBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let inc=parseFloat(income.value);
+        let sav=parseFloat(savings.value);
+        if(sav>250000){
+          alert("INVALID savings amount ");
+        }
+        let diff=inc-sav;
+        let incomeTax;
+
+        if(!savings.value || !income.value){
+          alert("Please provide required data");
+        }
+
+
+
+        if(diff<=250000){
+          incomeTax=0;
+          alert("Congratulations!!  You are TAX FREE ");
+
+          document.getElementById("itax").value=incomeTax;
+          
+        
+
+        }
+      else  if(diff>250000 && diff<500000){
+        incomeTax=diff*0.05;
+        document.getElementById("itax").value=incomeTax;
+        
+        }
+        else if(diff>=500000 && diff<1000000){
+          incomeTax=diff*0.1;
+          document.getElementById("itax").value=incomeTax;
+
+        }
+        else if(diff>=1000000 && diff<2000000){
+          incomeTax=diff*0.2;
+          document.getElementById("itax").value=incomeTax;
+
+        }
+        else {
+          incomeTax=diff*0.3;
+          document.getElementById("itax").value=incomeTax;
+
+        }
+        
+      });
+    </script>
+  </body>
+</html>

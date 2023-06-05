@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+.savings {
+    margin: 23px 0;
+}
+input#submitBtn {
+    width: 302px;
+    margin: 56px ;
+    background-color: rgb(17, 179, 17);
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    border: white;
+    cursor: pointer;
+}
+.tax {
+    margin-left: -23px;
+}
